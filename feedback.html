@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="theme-color" content="#ECECE7">
+	<title>Обратная связь - PeakFormIO</title>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="feedback.css">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:wght@400;500;600&family=Lato:wght@400;700&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	<script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+
+<body>
+	<div class="tg-app">
+		<header class="header">
+			<div class="container">
+				<nav class="nav">
+					<div class="logo">
+						<img src="Image/logo.png" alt="PeakFormIO Logo" class="logo-img">
+					</div>
+					<button class="burger-menu" aria-label="Меню">
+						<span class="burger-line"></span>
+						<span class="burger-line"></span>
+						<span class="burger-line"></span>
+					</button>
+					<div class="mobile-menu">
+						<ul class="nav-menu">
+							<li><a href="index.html">О нас</a></li>
+							<li><a href="index.html#services">Услуги</a></li>
+							<li><a href="feedback.html" class="active">Обратная связь</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+
+		<section class="feedback-hero">
+			<div class="container">
+				<h1>Обратная связь</h1>
+				<!-- <p>Мы ценим Ваше время! Ответьте на несколько вопросов, и мы свяжемся с Вами уже с готовым предложением.</p> -->
+			</div>
+		</section>
+
+		<section class="feedback-content">
+			<div class="container">
+				<div class="quiz-container">
+					<div class="header-block">
+						<div class="sidebar">
+							<div class="avatar operator-avatar">
+								<img src="./Image/avatar.gif" alt="avatar">
+							</div>
+						</div>
+						<div class="welcome-text">
+							Приветствие от PeakFormIO.
+						</div>
+					</div>
+					<main>
+						<div class="chat"></div>
+					</main>
+					<div class="quiz-start-btn">
+						<button class="cta-button" id="startQuizBtn">
+							<span class="button-text">Начать опрос</span>
+							<span class="button-icon">→</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer class="footer">
+			<div class="container">
+				<p>&copy; 2025 PeakFormIO. Все права защищены.</p>
+			</div>
+		</footer>
+	</div>
+
+	<script src="feedback.js"></script>
+</body>
+
+</html>
