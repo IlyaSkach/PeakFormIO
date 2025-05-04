@@ -221,29 +221,10 @@ p {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  cursor: pointer;
 }
 
 .service-card:hover {
-  transform: translateY(-10px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.service-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background-color: var(--accent-green);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-
-.service-card:hover::before {
-  transform: scaleX(1);
 }
 
 .service-icon {
@@ -290,7 +271,7 @@ p {
   z-index: 2;
 }
 
-.service-card.active .service-result {
+.service-card:hover .service-result {
   transform: translateY(0);
 }
 
@@ -301,7 +282,7 @@ p {
 }
 
 .service-result::before {
-  content: "🔹 Результат:";
+  content: "Результат:";
   display: block;
   font-weight: bold;
   margin-bottom: 10px;
@@ -378,16 +359,41 @@ p {
   }
 
   .service-card {
-    cursor: pointer;
+    transform: none;
+    margin-bottom: 0;
+    overflow: visible;
   }
 
   .service-card:hover {
     transform: none;
   }
 
+  .service-card:hover .service-result {
+    transform: translateY(100%);
+  }
+
   .service-card.active {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .service-result {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(100%);
+    background: var(--accent-green);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    display: none;
+  }
+
+  .service-card.active .service-result {
+    display: block;
+    transform: translateY(0);
   }
 }
 
