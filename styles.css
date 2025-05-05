@@ -362,19 +362,34 @@ p {
     transform: none;
     margin-bottom: 0;
     overflow: visible;
+    position: relative;
   }
 
   .service-card:hover {
     transform: none;
   }
 
-  .service-card:hover .service-result {
-    transform: translateY(100%);
+  .service-card.active {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   }
 
-  .service-card.active {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  .service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent-green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+    border-radius: 10px 10px 0 0;
+    z-index: 2;
+  }
+
+  .service-card.active::before {
+    transform: scaleX(1);
   }
 
   .service-result {
@@ -415,6 +430,35 @@ p {
 
   .nav-menu a {
     font-size: 16px;
+  }
+
+  .service-card {
+    transition: box-shadow 0.3s, transform 0.3s;
+    position: relative;
+  }
+
+  .service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent-green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+    border-radius: 10px 10px 0 0;
+    z-index: 2;
+  }
+
+  .service-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   }
 
   .service-card:hover .service-result {
