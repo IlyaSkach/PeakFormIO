@@ -16,10 +16,10 @@ const quiz = [
     id: "main",
     question: "Какова основная цель вашего обращения?",
     options: [
-      { text: "🔹 Нужен сайт или лендинг", next: "site" },
-      { text: "🔹 Хочу продвигать бизнес в соцсетях/рекламе", next: "ads" },
+      { text: "Нужен сайт или лендинг", next: "site" },
+      { text: "Хочу продвигать бизнес в соцсетях/рекламе", next: "ads" },
       {
-        text: "🔹 Планирую продавать/продаю на маркетплейсах",
+        text: "Планирую продавать/продаю на маркетплейсах",
         next: "marketplace",
       },
     ],
@@ -30,19 +30,19 @@ const quiz = [
     question: "У вас уже есть сайт?",
     options: [
       {
-        text: "🔹 Да, но нужно доработать/обновить",
+        text: "Да, но нужно доработать/обновить",
         result:
           "Мы проведем аудит и предложим решения для улучшения конверсии.",
-        final: true,
+        next: "site-tools",
       },
-      { text: "🔹 Нет, нужен с нуля", next: "site-type" },
+      { text: "Нет, нужен с нуля", next: "site-type" },
       {
-        text: "🔹 Есть, ищу специалистов для продвижения",
+        text: "Есть, ищу специалистов для продвижения",
         result: "Настроим SEO и рекламу для привлечения клиентов.",
         next: "ads",
       },
       {
-        text: "🔹 Пока не нужен сайт",
+        text: "Пока не нужен сайт",
         result: "Возможно, вам подойдет продвижение в соцсетях?",
         next: "ads",
       },
@@ -53,22 +53,22 @@ const quiz = [
     question: "Какой тип сайта вам нужен?",
     options: [
       {
-        text: "🔹 Лендинг",
+        text: "Лендинг",
         result: "Создадим одностраничник с высокой конверсией под вашу ЦА",
         next: "site-tools",
       },
       {
-        text: "🔹 Интернет-магазин",
+        text: "Интернет-магазин",
         result: "Разработаем удобный каталог с интеграцией платежей и CRM.",
         next: "site-tools",
       },
       {
-        text: "🔹 Корпоративный сайт",
+        text: "Корпоративный сайт",
         result: "Сделаем стильную визитку компании с SEO-оптимизацией.",
         next: "site-tools",
       },
       {
-        text: "🔹 Другое",
+        text: "Другое",
         result: "Обсудим индивидуальный проект на бесплатной консультации.",
         comment: true,
         next: "site-tools",
@@ -80,11 +80,11 @@ const quiz = [
     question: "Нужны ли дополнительные инструменты?",
     options: [
       {
-        text: "🔹 Да, хочу сразу подключить рекламу (SEO/таргет)",
+        text: "Да, хочу сразу подключить рекламу (SEO/таргет)",
         result: "Рекомендуем пакет: сайт + настройка рекламы",
         next: "site-budget",
       },
-      { text: "🔹 Пока только сайт", next: "site-budget" },
+      { text: "Пока только сайт", next: "site-budget" },
     ],
   },
   {
@@ -92,17 +92,18 @@ const quiz = [
     question: "Какой у вас бюджет?",
     options: [
       {
-        text: "🔹 До 50 тыс. руб.",
-        result: "Стартовые решения: лендинг или точечная реклама",
+        text: "До 50 тыс. руб.",
+        result:
+          "Стартовые решения: лендинг / точечная реклама / оптимизация или доработка сайта",
         next: "site-launch",
       },
       {
-        text: "🔹 50–100 тыс. руб.",
+        text: "50–100 тыс. руб.",
         result: "Оптимальный пакет: сайт + реклама",
         next: "site-launch",
       },
       {
-        text: "🔹 100+ тыс. руб.",
+        text: "100+ тыс. руб.",
         result: "Комплексный digital-маркетинг",
         next: "site-launch",
       },
@@ -113,23 +114,22 @@ const quiz = [
     question: "Когда планируете запуск?",
     options: [
       {
-        text: "🔹 Срочно (1–2 недели)",
+        text: "Срочно (1–2 недели)",
         result: "Предложим быстрые решения",
         final: true,
       },
       {
-        text: "🔹 В течение месяца",
+        text: "В течение месяца",
         result: "Разработаем стратегию",
         final: true,
       },
       {
-        text: "🔹 Пока изучаю варианты",
+        text: "Пока изучаю варианты",
         result: "Запишем на бесплатную консультацию",
         final: true,
       },
     ],
-    finalMessage:
-      "Хотите посмотреть примеры наших работ? [Кейсы] Или обсудить детали с менеджером? [Оставить заявку]",
+    finalMessage: "Хотите обсудить детали с менеджером? [Оставить заявку]",
   },
   // --- Блок "Реклама" ---
   {
@@ -137,22 +137,22 @@ const quiz = [
     question: "Какие платформы вас интересуют?",
     options: [
       {
-        text: "🔹 Instagram/Facebook",
+        text: "Instagram/Facebook",
         result: "Настроим таргет с точным попаданием в вашу ЦА.",
         next: "ads-site",
       },
       {
-        text: "🔹 ВКонтакте",
+        text: "ВКонтакте",
         result: "Запустим рекламу в сообществах и таргет.",
         next: "ads-site",
       },
       {
-        text: "🔹 TikTok",
+        text: "TikTok",
         result: "Создадим вирусный контент + продвижение.",
         next: "ads-site",
       },
       {
-        text: "🔹 Другое",
+        text: "Другое",
         result: "Поможем с Яндекс.Директ, Google Ads и др.",
         comment: true,
         next: "ads-site",
@@ -164,16 +164,16 @@ const quiz = [
     question: "Нужен ли сайт для рекламы?",
     options: [
       {
-        text: "🔹 Да, у меня его нет",
+        text: "Да, у меня его нет",
         result: "Рекомендуем лендинг + рекламную кампанию",
         next: "ads-budget",
       },
       {
-        text: "🔹 Есть, но он устарел",
+        text: "Есть, но он устарел",
         result: "Оптимизируем сайт + запустим рекламу",
         next: "ads-budget",
       },
-      { text: "🔹 Нет, только реклама", next: "ads-budget" },
+      { text: "Нет, только реклама", next: "ads-budget" },
     ],
   },
   {
@@ -181,17 +181,17 @@ const quiz = [
     question: "Какой у вас бюджет на рекламу?",
     options: [
       {
-        text: "🔹 До 30 тыс. руб.",
+        text: "До 30 тыс. руб.",
         result: "Рекомендуем точечный таргет или SEO.",
         next: "ads-launch",
       },
       {
-        text: "🔹 30–100 тыс. руб.",
+        text: "30–100 тыс. руб.",
         result: "Запустим комплекс: креативы + A/B-тесты.",
         next: "ads-launch",
       },
       {
-        text: "🔹 100+ тыс. руб.",
+        text: "100+ тыс. руб.",
         result: "Разработаем стратегию на 3–6 месяцев.",
         next: "ads-launch",
       },
@@ -202,17 +202,17 @@ const quiz = [
     question: "Когда планируете запуск?",
     options: [
       {
-        text: "🔹 Срочно (1–2 недели)",
+        text: "Срочно (1–2 недели)",
         result: "Предложим быстрые решения",
         final: true,
       },
       {
-        text: "🔹 В течение месяца",
+        text: "В течение месяца",
         result: "Разработаем стратегию",
         final: true,
       },
       {
-        text: "🔹 Пока изучаю варианты",
+        text: "Пока изучаю варианты",
         result: "Запишем на бесплатную консультацию",
         final: true,
       },
@@ -226,21 +226,25 @@ const quiz = [
     question: "На каких площадках планируете продавать?",
     options: [
       {
-        text: "🔹 Wildberries",
+        text: "Wildberries",
         result: "Поможем с карточками, логистикой и рекламой внутри WB.",
         next: "marketplace-problem",
       },
       {
-        text: "🔹 Ozon",
+        text: "Ozon",
         result: "Оптимизируем карточки и выведем в топ.",
         next: "marketplace-problem",
       },
       {
-        text: "🔹 Яндекс.Маркет",
+        text: "Яндекс.Маркет",
         result: "Настроим кампании с ROI-контролем.",
         next: "marketplace-problem",
       },
-      { text: "🔹 Другое", comment: true, next: "marketplace-problem" },
+      {
+        text: "Другое",
+        comment: true,
+        next: "marketplace-problem",
+      },
     ],
   },
   {
@@ -248,17 +252,17 @@ const quiz = [
     question: "Что вас беспокоит в работе с маркетплейсами?",
     options: [
       {
-        text: "🔹 Низкие продажи",
+        text: "Низкие продажи",
         result: "Проанализируем конкурентов и перезапустим карточки.",
         next: "marketplace-support",
       },
       {
-        text: "🔹 Сложности с оформлением",
+        text: "Сложности с оформлением",
         result: "Возьмем на себя все технические моменты.",
         next: "marketplace-support",
       },
       {
-        text: "🔹 Логистика",
+        text: "Логистика",
         result: "Подключим проверенных поставщиков услуг.",
         next: "marketplace-support",
       },
@@ -269,16 +273,19 @@ const quiz = [
     question: "Нужна ли дополнительная поддержка?",
     options: [
       {
-        text: "🔹 Да, хочу рекламу внутри маркетплейса",
+        text: "Да, хочу рекламу внутри маркетплейса",
         result: "Пакет: карточки товаров + продвижение",
-        next: "ads",
+        next: "marketplace-budget",
       },
       {
-        text: "🔹 Да, нужен сайт для трафика",
+        text: "Да, нужен сайт для трафика",
         result: "Свяжем маркетплейс с вашим интернет-магазином",
-        next: "site",
+        next: "marketplace-budget",
       },
-      { text: "🔹 Только базовые услуги", next: "marketplace-budget" },
+      {
+        text: "Только базовые услуги",
+        next: "marketplace-budget",
+      },
     ],
   },
   {
@@ -286,17 +293,18 @@ const quiz = [
     question: "Какой у вас бюджет?",
     options: [
       {
-        text: "🔹 До 30 тыс. руб.",
-        result: "Стартовые решения: карточки товаров и/или точечная реклама",
+        text: "До 30 тыс. руб.",
+        result:
+          "Стартовые решения: карточки товаров и/или точечная реклама / лендинг",
         next: "marketplace-launch",
       },
       {
-        text: "🔹 30–100 тыс. руб.",
+        text: "30–100 тыс. руб.",
         result: "Оптимальный пакет: лендинг + реклама",
         next: "marketplace-launch",
       },
       {
-        text: "🔹 100+ тыс. руб.",
+        text: "100+ тыс. руб.",
         result: "Комплексный digital-маркетинг",
         next: "marketplace-launch",
       },
@@ -307,23 +315,23 @@ const quiz = [
     question: "Когда планируете запуск?",
     options: [
       {
-        text: "🔹 Срочно (1–2 недели)",
+        text: "Срочно (1–2 недели)",
         result: "Предложим быстрые решения",
         final: true,
       },
       {
-        text: "🔹 В течение месяца",
+        text: "В течение месяца",
         result: "Разработаем стратегию",
         final: true,
       },
       {
-        text: "🔹 Пока изучаю варианты",
+        text: "Пока изучаю варианты",
         result: "Запишем на бесплатную консультацию",
         final: true,
       },
     ],
     finalMessage:
-      "Наши клиенты увеличивают продажи в 2–5 раз. Хотите так же? [Кейсы]",
+      "Наши клиенты увеличивают продажи в 2–5 раз. Хотите так же? [Оставить заявку]",
   },
 ];
 
@@ -414,19 +422,38 @@ function handleAnswer(q, btn, idx) {
   const option = q.options[idx];
   // Добавляем ответ пользователя в чат
   addUserMessage(option.text);
-  // Если есть результат — показываем
-  if (option.result) {
-    addOperatorMessage(option.result);
-  }
+
   // Если нужен комментарий
   if (option.comment) {
     askForComment(q, option);
     return;
   }
+
+  // Если есть результат — показываем его с анимацией, затем следующий вопрос/финал
+  if (option.result) {
+    addOperatorMessage(option.result, () => {
+      // После результата — финал или следующий вопрос
+      if (option.final || q.finalMessage) {
+        setTimeout(() => {
+          if (q.finalMessage) {
+            showFinalForm(q.finalMessage);
+          }
+        }, 800);
+        return;
+      }
+      if (option.next) {
+        setTimeout(() => showQuestion(option.next), 800);
+      }
+    });
+    return;
+  }
+
   // Если финал — показываем финальное сообщение
   if (option.final || q.finalMessage) {
     setTimeout(() => {
-      if (q.finalMessage) addOperatorMessage(q.finalMessage);
+      if (q.finalMessage) {
+        showFinalForm(q.finalMessage);
+      }
     }, 800);
     return;
   }
@@ -470,17 +497,36 @@ function addUserMessage(text) {
   scrollChat();
 }
 
-function addOperatorMessage(text) {
-  const opMsg = document.createElement("div");
-  opMsg.classList.add("chat-message", "operator");
-  opMsg.innerHTML = `
+function addOperatorMessage(text, callback) {
+  // Сначала показываем "печатает..."
+  const typingMessage = document.createElement("div");
+  typingMessage.classList.add("chat-message", "operator");
+  typingMessage.innerHTML = `
     <div class="message-container">
       <div class="operator-avatar"></div>
-      <div class="message">${text}</div>
+      <div class="message typing">
+        Оператор печатает<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+      </div>
     </div>
   `;
-  chat.appendChild(opMsg);
+  document.querySelector(".chat").appendChild(typingMessage);
   scrollChat();
+
+  // Через 1.5 секунды показываем сообщение
+  setTimeout(() => {
+    typingMessage.remove();
+    const opMsg = document.createElement("div");
+    opMsg.classList.add("chat-message", "operator");
+    opMsg.innerHTML = `
+      <div class="message-container">
+        <div class="operator-avatar"></div>
+        <div class="message">${text}</div>
+      </div>
+    `;
+    document.querySelector(".chat").appendChild(opMsg);
+    scrollChat();
+    if (typeof callback === "function") callback();
+  }, 1500);
 }
 
 function updateProgress() {
@@ -492,4 +538,145 @@ function updateProgress() {
 function scrollChat() {
   const chatContainer = document.querySelector("main");
   chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+function showFinalForm(message) {
+  // Сначала показываем "печатает..."
+  const typingMessage = document.createElement("div");
+  typingMessage.classList.add("chat-message", "operator");
+  typingMessage.innerHTML = `
+    <div class="message-container">
+      <div class="operator-avatar"></div>
+      <div class="message typing">
+        Оператор печатает<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+      </div>
+    </div>
+  `;
+  document.querySelector(".chat").appendChild(typingMessage);
+  scrollChat();
+
+  // Через 1.5 секунды показываем форму
+  setTimeout(() => {
+    typingMessage.remove();
+    const formElement = document.createElement("div");
+    formElement.classList.add("chat-message", "operator");
+    formElement.innerHTML = `
+      <div class="message-container">
+        <div class="operator-avatar"></div>
+        <div class="message">
+          <p>${message}</p>
+          <form id="final-form" class="final-form">
+            <div class="form-group">
+              <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" id="phone" name="phone" placeholder="Ваш телефон" required>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="submit-button">Отправить</button>
+            </div>
+            <div class="form-group">
+              <label class="checkbox-label">
+                <input type="checkbox" required>
+                Я согласен с <a href="#" onclick="showPrivacyPolicyModal()">политикой конфиденциальности</a>
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+    `;
+    document.querySelector(".chat").appendChild(formElement);
+    scrollChat();
+
+    // Добавляем обработчик формы
+    const form = formElement.querySelector("#final-form");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      submitForm();
+    });
+
+    // Добавляем маску для телефона
+    const phoneInput = formElement.querySelector("#phone");
+    phoneInput.addEventListener("input", function (e) {
+      formatPhoneNumber(e.target);
+    });
+  }, 1500);
+}
+
+function formatPhoneNumber(input) {
+  let value = input.value.replace(/\D/g, "");
+  if (value.length > 0) {
+    value = value.match(new RegExp(".{1,11}"))[0];
+    let formattedValue = "+7";
+    if (value.length > 1) {
+      formattedValue += " (" + value.substring(1, 4);
+    }
+    if (value.length > 4) {
+      formattedValue += ") " + value.substring(4, 7);
+    }
+    if (value.length > 7) {
+      formattedValue += "-" + value.substring(7, 9);
+    }
+    if (value.length > 9) {
+      formattedValue += "-" + value.substring(9, 11);
+    }
+    input.value = formattedValue;
+  }
+}
+
+function submitForm() {
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+
+  if (!name || !phone) {
+    showPopup("Пожалуйста, заполните все поля");
+    return;
+  }
+
+  // Здесь можно добавить отправку данных на сервер
+  const formData = {
+    name: name,
+    phone: phone,
+    answers: userAnswers,
+  };
+
+  // Показываем сообщение об успешной отправке
+  showPopup("Спасибо! Мы свяжемся с вами в ближайшее время.");
+
+  // Очищаем форму
+  document.getElementById("name").value = "";
+  document.getElementById("phone").value = "";
+}
+
+function showPopup(message) {
+  const popup = document.createElement("div");
+  popup.id = "popup";
+  popup.className = "popup";
+  popup.innerHTML = `
+    <div class="popup-content">
+      <span class="close-button" onclick="this.parentElement.parentElement.remove()">&times;</span>
+      <p>${message}</p>
+    </div>
+  `;
+  document.body.appendChild(popup);
+}
+
+function showPrivacyPolicyModal() {
+  const modal = document.createElement("div");
+  modal.id = "privacy-policy-modal";
+  modal.className = "popup modal";
+  modal.innerHTML = `
+    <div class="popup-content modal-content">
+      <span class="close-button" onclick="this.parentElement.parentElement.remove()">&times;</span>
+      <h3>Политика конфиденциальности</h3>
+      <div class="agreement-text">
+        <p>Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных PeakFormIO.</p>
+        <p>1. Мы собираем и обрабатываем персональные данные, которые вы предоставляете при заполнении формы обратной связи.</p>
+        <p>2. Ваши данные используются только для связи с вами и предоставления запрошенных услуг.</p>
+        <p>3. Мы не передаем ваши данные третьим лицам без вашего согласия.</p>
+        <p>4. Вы можете отозвать свое согласие на обработку персональных данных в любое время.</p>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
 }
