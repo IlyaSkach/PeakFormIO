@@ -120,7 +120,7 @@ const quiz = [
       },
       {
         text: "В течение месяца",
-        result: "Разработаем стратегию",
+        result: "Свяжемся с вами в ближайшее время",
         final: true,
       },
       {
@@ -129,7 +129,7 @@ const quiz = [
         final: true,
       },
     ],
-    finalMessage: "Хотите обсудить детали с менеджером? [Оставить заявку]",
+    finalMessage: "Хотите обсудить детали с менеджером?",
   },
   // --- Блок "Реклама" ---
   {
@@ -218,7 +218,7 @@ const quiz = [
       },
     ],
     finalMessage:
-      "Мы гарантируем прозрачную аналитику. Хотите разбор вашей ниши? [Заказать аудит]",
+      "Мы гарантируем прозрачную аналитику. Хотите разбор вашей ниши?",
   },
   // --- Блок "Маркетплейсы" ---
   {
@@ -330,8 +330,7 @@ const quiz = [
         final: true,
       },
     ],
-    finalMessage:
-      "Наши клиенты увеличивают продажи в 2–5 раз. Хотите так же? [Оставить заявку]",
+    finalMessage: "Наши клиенты увеличивают продажи в 2–5 раз. Хотите так же?",
   },
 ];
 
@@ -573,6 +572,9 @@ function showFinalForm(message) {
               <input type="tel" id="phone" name="phone" placeholder="Ваш телефон" required>
             </div>
             <div class="form-group">
+              <input type="text" id="comment" name="comment" placeholder="Комментарий (необязательно)">
+            </div>
+            <div class="form-group">
               <button type="submit" class="submit-button">Отправить</button>
             </div>
             <div class="form-group">
@@ -627,6 +629,7 @@ function formatPhoneNumber(input) {
 function submitForm() {
   const name = document.getElementById("name").value.trim();
   const phone = document.getElementById("phone").value.trim();
+  const comment = document.getElementById("comment").value.trim();
 
   if (!name || !phone) {
     showPopup("Пожалуйста, заполните все поля");
@@ -637,6 +640,7 @@ function submitForm() {
   const formData = {
     name: name,
     phone: phone,
+    comment: comment,
     answers: userAnswers,
   };
 
@@ -646,6 +650,7 @@ function submitForm() {
   // Очищаем форму
   document.getElementById("name").value = "";
   document.getElementById("phone").value = "";
+  document.getElementById("comment").value = "";
 }
 
 function showPopup(message) {
