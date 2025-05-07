@@ -1,4 +1,5 @@
 // Вопросы для квиза обратной связи
+const PRIVACY_TEXT = " политикой конфиденциальности";
 const questions = [
   {
     text: "Вопрос 1",
@@ -419,6 +420,8 @@ function showQuestion(id) {
 
 function handleAnswer(q, btn, idx) {
   const option = q.options[idx];
+  // Добавляем ответ пользователя в массив
+  userAnswers.push(option.text);
   // Добавляем ответ пользователя в чат
   addUserMessage(option.text);
 
@@ -580,7 +583,7 @@ function showFinalForm(message) {
             <div class="form-group">
               <label class="checkbox-label">
                 <input type="checkbox" required>
-                Я согласен с <a href="#" onclick="showPrivacyPolicyModal()">политикой конфиденциальности</a>
+                Я согласен(а) с&nbsp;<a href="#" onclick="showPrivacyPolicyModal()">политикой конфиденциальности</a>
               </label>
             </div>
           </form>
@@ -636,16 +639,42 @@ function submitForm() {
     return;
   }
 
-  // Здесь можно добавить отправку данных на сервер
+  // Собираем ответы пользователя для Telegram (восстановим вопросы и ответы)
+  let answers = [];
+  if (Array.isArray(progressSteps)) {
+    for (let i = 0; i < progressSteps.length; i++) {
+      const q = quiz.find((q) => q.id === progressSteps[i]);
+      if (q && userAnswers[i]) {
+        answers.push({ question: q.question, answer: userAnswers[i] });
+      }
+    }
+  }
+
   const formData = {
     name: name,
     phone: phone,
     comment: comment,
-    answers: userAnswers,
+    answers: answers,
   };
 
-  // Показываем сообщение об успешной отправке
-  showPopup("Спасибо! Мы свяжемся с вами в ближайшее время.");
+  // Отправляем данные на сервер (PHP)
+  fetch("/PeakFormIO/send_telegram.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.ok) {
+        showPopup("Спасибо! Мы свяжемся с вами в ближайшее время.");
+      } else {
+        showPopup("Ошибка отправки. Попробуйте позже.");
+      }
+    })
+    .catch((error) => {
+      console.error("Ошибка отправки:", error);
+      showPopup("Ошибка отправки. Попробуйте позже.");
+    });
 
   // Очищаем форму
   document.getElementById("name").value = "";
